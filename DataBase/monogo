@@ -1,0 +1,6 @@
+//MongoDb Creating Databases and Collections
+use Farmer
+use admin
+use crop
+use purchases
+
