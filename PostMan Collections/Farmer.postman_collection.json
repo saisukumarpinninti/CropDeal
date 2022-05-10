@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "2ac534da-4602-438e-9634-d2440c768450",
+		"name": "Farmer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Farmer",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:8082/farmer/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"farmer",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Farmers List",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:8082/farmers",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"farmers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Farmer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"0\",\r\n    \"firstName\": \"saiSukumar\",\r\n    \"lastName\": \"Pinninti\",\r\n    \"password\": \"Hello\",\r\n    \"dob\": \"2000-01-11\",\r\n    \"email\": \"sai@gmail.com\",\r\n    \"address\": \"saisukumar\",\r\n    \"Status\": true\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8082/farmer/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"farmer",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Farmer",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"1\",\r\n    \"firstName\": \"saiSukumar\",\r\n    \"lastName\": \"Pinninti\",\r\n    \"password\": \"Hello\",\r\n    \"dob\": \"2000-01-11\",\r\n    \"email\": \"saisukumarpinniti@gmail.com\",\r\n    \"address\": \"saisukumar\",\r\n    \"Status\": true\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8082/farmer/update",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"farmer",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Farmer",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"1\",\r\n    \"firstName\": \"saiSukumar\",\r\n    \"lastName\": \"Pinninti\",\r\n    \"password\": \"Hello\",\r\n    \"dob\": \"2000-01-11\",\r\n    \"email\": \"saisukumarpinniti@gmail.com\",\r\n    \"address\": \"saisukumar\",\r\n    \"Status\": true\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8082/farmer/delete/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"farmer",
+						"delete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

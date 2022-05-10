@@ -1,0 +1,144 @@
+{
+	"info": {
+		"_postman_id": "1735f22c-f31a-4290-8e59-4cce112faea5",
+		"name": "Dealer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Dealer",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:8083/Dealer/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"Dealer",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Dealers List",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:8083/Dealers",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"Dealers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Dealer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"0\",\r\n    \"firstName\": \"saiSukumar\",\r\n    \"lastName\": \"Pinninti\",\r\n    \"password\": \"Hello\",\r\n    \"dob\": \"2000-01-11\",\r\n    \"email\": \"sai@gmail.com\",\r\n    \"address\": \"saisukumar\",\r\n    \"mobileNumber\":9000725889,\r\n    \"paymentInfo\":\"1100\",\r\n    \"status\": true,\r\n    \"addons\" : []\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8083/Dealer/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"Dealer",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Dealer",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"id\": \"8\",\r\n    \"firstName\": \"saiSukumar\",\r\n    \"lastName\": \"Pinninti\",\r\n    \"password\": \"Hello\",\r\n    \"dob\": \"2000-01-11\",\r\n    \"email\": \"sai@gmail.com\",\r\n    \"address\": \"saisukumar\",\r\n    \"mobileNumber\":9000725889,\r\n    \"paymentInfo\":\"1100\",\r\n    \"status\": true,\r\n    \"addons\" : [\"Execel\"]\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8083/Dealer/update",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"Dealer",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Dealer",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8083/Dealer/delete/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"Dealer",
+						"delete",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
