@@ -1,4 +1,5 @@
-//MongoDb Creating Databases and Collections
+
+
 use Farmer
 db.createCollection("farmers")
 db.farmers.insertone({  "_id": "1", 
@@ -29,10 +30,14 @@ db.Dealer.insertone({  "_id": "4",
 "addons": [     ],  
 "_class": "com.cropdeal.entity.Dealer"})
 
-use admin
-db.createCollection("admins")
-use crop
-db.createCollection("crops")
-use purchases
-db.createCollection("purchases")
+use Crop
+db.createCollection("Crop")
+db.Crop.insertone({
+    "id": "0",
+    "farmerid": "2",
+    "name":"Brinjal",
+    "cost":200,
+    "quantity":7,
+    "type":"Kg"
+}
 
