@@ -1,12 +1,12 @@
 {
 	"info": {
-		"_postman_id": "1735f22c-f31a-4290-8e59-4cce112faea5",
-		"name": "Dealer",
+		"_postman_id": "69f0d4cb-3997-40f7-b008-ede62df8cd76",
+		"name": "Crops",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Get Dealer",
+			"name": "Get Crop",
 			"request": {
 				"method": "GET",
 				"header": [
@@ -18,21 +18,21 @@
 					}
 				],
 				"url": {
-					"raw": "localhost:8083/Dealer/4",
+					"raw": "localhost:8081/Crop/1",
 					"host": [
 						"localhost"
 					],
-					"port": "8083",
+					"port": "8081",
 					"path": [
-						"Dealer",
-						"4"
+						"Crop",
+						"1"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Get Dealers List",
+			"name": "Get Crop List",
 			"request": {
 				"method": "GET",
 				"header": [
@@ -44,13 +44,13 @@
 					}
 				],
 				"url": {
-					"raw": "localhost:8083/Dealer/all",
+					"raw": "localhost:8081/Crop/all",
 					"host": [
 						"localhost"
 					],
-					"port": "8083",
+					"port": "8081",
 					"path": [
-						"Dealer",
+						"Crop",
 						"all"
 					]
 				}
@@ -58,7 +58,7 @@
 			"response": []
 		},
 		{
-			"name": "Add Dealer",
+			"name": "Add Crop",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -70,16 +70,16 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": \"0\",\r\n    \"firstName\": \"saiSukumar\",\r\n    \"lastName\": \"Pinninti\",\r\n    \"password\": \"Hello\",\r\n    \"dob\": \"2000-01-11\",\r\n    \"email\": \"sai@gmail.com\",\r\n    \"address\": \"saisukumar\",\r\n    \"mobileNumber\":9000725889,\r\n    \"paymentInfo\":\"1100\",\r\n    \"status\": true,\r\n    \"addons\" : []\r\n}"
+					"raw": "{\r\n    \"id\": \"0\",\r\n    \"farmerid\": \"2\",\r\n    \"name\":\"Brinjal\",\r\n    \"cost\":200,\r\n    \"quantity\":7,\r\n    \"type\":\"Kg\"\r\n}"
 				},
 				"url": {
-					"raw": "localhost:8083/Dealer/add",
+					"raw": "localhost:8081/Crop/add",
 					"host": [
 						"localhost"
 					],
-					"port": "8083",
+					"port": "8081",
 					"path": [
-						"Dealer",
+						"Crop",
 						"add"
 					]
 				}
@@ -87,7 +87,7 @@
 			"response": []
 		},
 		{
-			"name": "Update Dealer",
+			"name": "Update Crop",
 			"request": {
 				"method": "PUT",
 				"header": [
@@ -99,16 +99,16 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{ \r\n    \"id\": \"8\",\r\n    \"firstName\": \"saiSukumar\",\r\n    \"lastName\": \"Pinninti\",\r\n    \"password\": \"Hello\",\r\n    \"dob\": \"2000-01-11\",\r\n    \"email\": \"sai@gmail.com\",\r\n    \"address\": \"saisukumar\",\r\n    \"mobileNumber\":9000725889,\r\n    \"paymentInfo\":\"1100\",\r\n    \"status\": true,\r\n    \"addons\" : [\"Execel\"]\r\n}"
+					"raw": "{\r\n    \"id\": \"0\",\r\n    \"farmerid\": \"2\",\r\n    \"name\":\"Brinjal\",\r\n    \"cost\":200,\r\n    \"quantity\":6,\r\n    \"type\":\"Kg\"\r\n}"
 				},
 				"url": {
-					"raw": "localhost:8083/Dealer/update",
+					"raw": "localhost:8081/Crop/update",
 					"host": [
 						"localhost"
 					],
-					"port": "8083",
+					"port": "8081",
 					"path": [
-						"Dealer",
+						"Crop",
 						"update"
 					]
 				}
@@ -116,7 +116,7 @@
 			"response": []
 		},
 		{
-			"name": "Delete Dealer",
+			"name": "Delete Crop",
 			"request": {
 				"method": "DELETE",
 				"header": [
@@ -127,13 +127,13 @@
 					}
 				],
 				"url": {
-					"raw": "localhost:8083/Dealer/delete/3",
+					"raw": "localhost:8081/Crop/delete/3",
 					"host": [
 						"localhost"
 					],
-					"port": "8083",
+					"port": "8081",
 					"path": [
-						"Dealer",
+						"Crop",
 						"delete",
 						"3"
 					]

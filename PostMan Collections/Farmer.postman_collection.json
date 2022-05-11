@@ -32,6 +32,33 @@
 			"response": []
 		},
 		{
+			"name": "Check Farmer",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:8082/farmer/check/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"farmer",
+						"check",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Get Farmers List",
 			"request": {
 				"method": "GET",
@@ -44,13 +71,14 @@
 					}
 				],
 				"url": {
-					"raw": "localhost:8082/farmers",
+					"raw": "localhost:8082/farmer/all",
 					"host": [
 						"localhost"
 					],
 					"port": "8082",
 					"path": [
-						"farmers"
+						"farmer",
+						"all"
 					]
 				}
 			},
@@ -69,7 +97,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": \"0\",\r\n    \"firstName\": \"saiSukumar\",\r\n    \"lastName\": \"Pinninti\",\r\n    \"password\": \"Hello\",\r\n    \"dob\": \"2000-01-11\",\r\n    \"email\": \"sai@gmail.com\",\r\n    \"address\": \"saisukumar\",\r\n    \"Status\": true\r\n}"
+					"raw": "{\r\n    \r\n        \"id\": \"2\",\r\n        \"firstName\": \"saiSukumar\",\r\n        \"lastName\": \"Pinninti\",\r\n        \"password\": \"Hello\",\r\n        \"dob\": \"2000-01-11T00:00:00.000+00:00\",\r\n        \"email\": \"sai@gmail.com\",\r\n        \"address\": \"saisukumar\",\r\n        \"paymentInfo\": 333645,\r\n        \"mobileNumber\": 9000725889,\r\n        \"status\": true\r\n    \r\n}"
 				},
 				"url": {
 					"raw": "localhost:8082/farmer/add",
@@ -98,7 +126,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": \"1\",\r\n    \"firstName\": \"saiSukumar\",\r\n    \"lastName\": \"Pinninti\",\r\n    \"password\": \"Hello\",\r\n    \"dob\": \"2000-01-11\",\r\n    \"email\": \"saisukumarpinniti@gmail.com\",\r\n    \"address\": \"saisukumar\",\r\n    \"Status\": true\r\n}"
+					"raw": "{\r\n        \"id\": \"2\",\r\n        \"firstName\": \"saiSukumar\",\r\n        \"lastName\": \"Pinninti\",\r\n        \"password\": \"Hello\",\r\n        \"dob\": \"2000-01-11T00:00:00.000+00:00\",\r\n        \"email\": \"sai@gmail.com\",\r\n        \"address\": \"saisukumar\",\r\n        \"paymentInfo\": 333645,\r\n        \"mobileNumber\": 9000725889,\r\n        \"status\": true\r\n}"
 				},
 				"url": {
 					"raw": "localhost:8082/farmer/update",
@@ -125,10 +153,6 @@
 						"type": "text"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id\": \"1\",\r\n    \"firstName\": \"saiSukumar\",\r\n    \"lastName\": \"Pinninti\",\r\n    \"password\": \"Hello\",\r\n    \"dob\": \"2000-01-11\",\r\n    \"email\": \"saisukumarpinniti@gmail.com\",\r\n    \"address\": \"saisukumar\",\r\n    \"Status\": true\r\n}"
-				},
 				"url": {
 					"raw": "localhost:8082/farmer/delete/1",
 					"host": [
