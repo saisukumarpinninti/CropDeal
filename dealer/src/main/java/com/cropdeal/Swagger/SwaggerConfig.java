@@ -27,7 +27,7 @@ public class SwaggerConfig {
     }
     private ApiInfo getApiInfo() {
         return new ApiInfo(
-                "Farmer API Documentation",
+                "Dealer API Documentation",
                 "This is Documentation for API of Farmer  Microservice",
                 "1.0",
                 "https://www.edgeverve.com/componentlist/assistedge/apache-software-license/",
