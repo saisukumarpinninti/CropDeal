@@ -1,0 +1,8 @@
+server:
+  port: 8081
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://sai:sai@pinninti-sai-sukumar.lvnkc.mongodb.net/Admin?retryWrites=true&w=majority
+  application:
+    name: AdminService
