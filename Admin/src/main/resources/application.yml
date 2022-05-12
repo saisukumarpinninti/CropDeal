@@ -1,8 +1,12 @@
 server:
-  port: 8081
+  port: 8084
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://sai:sai@pinninti-sai-sukumar.lvnkc.mongodb.net/Admin?retryWrites=true&w=majority
+      uri: mongodb+srv://sai:sai@pinninti-sai-sukumar.lvnkc.mongodb.net/Master?retryWrites=true&w=majority
   application:
     name: AdminService
+  mvc:
+    pathmatch:
+      matching-strategy:
+        ant-path-matcher

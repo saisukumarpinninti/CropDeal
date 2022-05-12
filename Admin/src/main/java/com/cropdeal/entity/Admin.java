@@ -18,6 +18,7 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
  *
  * @Param : email - is the password of the admin
  */
+
 @Document(collection = "Admin")
 @NoArgsConstructor
 @ToString
