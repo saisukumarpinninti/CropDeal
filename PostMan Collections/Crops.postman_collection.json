@@ -58,6 +58,33 @@
 			"response": []
 		},
 		{
+			"name": "Get all Crops By Farmer",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:8081/Crop/1/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"Crop",
+						"1",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Add Crop",
 			"request": {
 				"method": "POST",
@@ -70,7 +97,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": \"0\",\r\n    \"farmerid\": \"2\",\r\n    \"name\":\"Brinjal\",\r\n    \"cost\":200,\r\n    \"quantity\":7,\r\n    \"type\":\"Kg\"\r\n}"
+					"raw": "{\r\n    \"id\": \"0\",\r\n    \"farmerid\": \"3\",\r\n    \"name\":\"Brinjal\",\r\n    \"cost\":200,\r\n    \"quantity\":7,\r\n    \"type\":\"Kg\",\r\n   \"Active\":true\t\r\n}"
 				},
 				"url": {
 					"raw": "localhost:8081/Crop/add",
@@ -99,7 +126,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": \"0\",\r\n    \"farmerid\": \"2\",\r\n    \"name\":\"Brinjal\",\r\n    \"cost\":200,\r\n    \"quantity\":6,\r\n    \"type\":\"Kg\"\r\n}"
+					"raw": "{\r\n    \"id\": \"0\",\r\n    \"farmerid\": \"3\",\r\n    \"name\":\"Brinjal\",\r\n    \"cost\":200,\r\n    \"quantity\":7,\r\n    \"type\":\"Kg\",\r\n   \"Active\":true\t\r\n}"
 				},
 				"url": {
 					"raw": "localhost:8081/Crop/update",
@@ -127,7 +154,7 @@
 					}
 				],
 				"url": {
-					"raw": "localhost:8081/Crop/delete/3",
+					"raw": "localhost:8081/Crop/delete/0",
 					"host": [
 						"localhost"
 					],
@@ -135,7 +162,7 @@
 					"path": [
 						"Crop",
 						"delete",
-						"3"
+						"0"
 					]
 				}
 			},
