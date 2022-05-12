@@ -6,3 +6,7 @@ spring:
       uri: mongodb+srv://sai:sai@pinninti-sai-sukumar.lvnkc.mongodb.net/Crop?retryWrites=true&w=majority
   application:
     name: CropService
+  mvc:
+    pathmatch:
+      matching-strategy:
+        ant-path-matcher

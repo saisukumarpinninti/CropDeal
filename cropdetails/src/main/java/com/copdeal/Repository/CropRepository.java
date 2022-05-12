@@ -10,5 +10,5 @@ import java.util.List;
 * */
 @Repository
 public interface CropRepository extends MongoRepository<Crop, String>{
-    List<Crop> getListByFarmerId(String farmerid);
+    List<Crop> getListByfarmerid(String farmerid);
 }

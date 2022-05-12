@@ -79,7 +79,7 @@ public class CropService  {
 
     //get the list of crops by a sepcific farmerid
     public  List<Crop> getListByFarmer(String farmerId){
-        return CropRepository.getListByFarmerId(farmerId);
+        return CropRepository.getListByfarmerid(farmerId);
     }
 
     //checks & Sends if the Crop exits or not
