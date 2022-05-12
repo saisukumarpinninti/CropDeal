@@ -1,7 +1,7 @@
 ## The Project is in the Developement Phase ##
 
 <p align="center">
-<img  src="./Resources/icon.png" width="200" height="100">
+<img  src="/Resources/icon.png" width="200" height="100">
 </p>
 
 ![](https://komarev.com/ghpvc/?username=saisukumarpinninti&color=green)
