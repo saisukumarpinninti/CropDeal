@@ -41,7 +41,7 @@ public class CropService  {
         if(farmerService.checkIsFarmer(F.getFarmerid())){
         //Generating the id of the Crop
         F.setId(sg.getSequenceNumber("Crop_Sequence"));
-            System.out.println(F.toString());
+        F.setActive(Boolean.TRUE);
         return  CropRepository.save(F);}
         else{
             F.setName("Farmer DoesNot Exits");
@@ -75,6 +75,11 @@ public class CropService  {
         else {
             return "CropNotFound";
         }
+    }
+
+    //get the list of crops by a sepcific farmerid
+    public  List<Crop> getListByFarmer(String farmerId){
+        return CropRepository.getListByFarmerId(farmerId);
     }
 
     //checks & Sends if the Crop exits or not

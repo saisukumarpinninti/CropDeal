@@ -19,6 +19,13 @@ public class CropController {
         return cropService.getAllCrops();
     }
 
+    //returns  the list of crops by a sepcific farmerid
+    @GetMapping("/{farmerid}/all")
+    public List<Crop> getListByFarmerId(@PathVariable String farmerid) {
+        return cropService.getListByFarmer(farmerid);
+    }
+
+
     //Returns the data of The Crop by using id
     @GetMapping("/{Id}")
     public Crop findById(@PathVariable String Id) {
