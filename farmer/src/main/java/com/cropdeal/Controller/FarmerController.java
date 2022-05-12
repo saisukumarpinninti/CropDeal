@@ -1,14 +1,27 @@
 package com.cropdeal.Controller;
+
 import com.cropdeal.entity.Farmer;
 import com.cropdeal.service.FarmerService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+
 
 
 @RestController
+
 @RequestMapping("/farmer")
+
 public class FarmerController {
+
     @Autowired
     private FarmerService farmerService;
 
@@ -17,6 +30,7 @@ public class FarmerController {
     public List<Farmer> getFarmers() {
         return farmerService.getAllFarmers();
     }
+
 
     //Returns the data of The Farmer by using id
     @GetMapping("/{Id}")

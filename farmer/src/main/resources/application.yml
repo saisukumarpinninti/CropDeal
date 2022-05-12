@@ -6,3 +6,8 @@ spring:
       uri: mongodb+srv://sai:sai@pinninti-sai-sukumar.lvnkc.mongodb.net/Farmer?retryWrites=true&w=majority
   application:
     name: FarmerService
+
+  mvc:
+    pathmatch:
+      matching-strategy:
+        ant-path-matcher
