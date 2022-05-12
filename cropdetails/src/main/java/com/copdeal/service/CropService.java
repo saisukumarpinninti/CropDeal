@@ -4,12 +4,12 @@ package com.copdeal.service;
 import com.copdeal.entity.Crop;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 /*
 * Service Class For The Crops
 */
+
 @Service
 public class CropService  {
     @Autowired

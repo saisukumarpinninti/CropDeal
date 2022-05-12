@@ -14,11 +14,6 @@ public class CropController {
     private CropService cropService;
 
     //Returns List Of All The crops
-    @GetMapping("/a")
-    public String getCrops1() {
-        return "cropService";
-    }
-    //Returns List Of All The crops
     @GetMapping("/all")
     public List<Crop> getCrops() {
         return cropService.getAllCrops();

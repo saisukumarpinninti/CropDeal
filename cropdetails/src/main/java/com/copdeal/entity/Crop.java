@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
 /*
- * This is an Entity Class For Farmer,
+ * This is an Entity Class For Crop,
  *
  * The id field is the Mongodb id and refers to MonogoId .
  *
