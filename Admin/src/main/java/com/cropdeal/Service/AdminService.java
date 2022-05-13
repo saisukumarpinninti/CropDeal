@@ -42,6 +42,7 @@ public class AdminService {
     //if the Admin not exits returns the error result
     public String deleteById(String Id) {
         if (Checkexits(Id)){
+
                 adminRepository.deleteById(Id);
                 return "deleted SuccessFully";
         }
