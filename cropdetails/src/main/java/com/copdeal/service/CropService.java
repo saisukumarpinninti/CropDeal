@@ -53,33 +53,33 @@ public class CropService  {
     //if the Crop not exits returns the error
     public Crop updateCrop(Crop F){
 
-        if(Checkexits(F.getId())){
-
             return  CropRepository.save(F);
-        }
 
-        else {
-            F.setName("CropFound");
-            return F;
-        }
+
+
     }
 
     //Deletes the Crop data in the database if the Crop exits and returns the Result
     //if the Crop not exits returns the error result
     public String deleteById(String Id) {
 
-        if(Checkexits(Id)){
+
             CropRepository.deleteById(Id);
             return "Deleted SuccessFully";
-        }
-        else {
-            return "CropNotFound";
-        }
+
     }
 
-    //get the list of crops by a sepcific farmerid
+    //get the list of crops by a specific farmerid
     public  List<Crop> getListByFarmer(String farmerId){
         return CropRepository.getListByfarmerid(farmerId);
+    }
+
+    public List<Crop> getListByname(String name){
+         return CropRepository.getListByname(name);
+}
+
+    public List<Crop> getListByActive(Boolean Active){
+        return CropRepository.getListByActive(Active);
     }
 
     //checks & Sends if the Crop exits or not

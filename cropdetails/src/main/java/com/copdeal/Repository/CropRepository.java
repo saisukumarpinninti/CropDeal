@@ -11,4 +11,6 @@ import java.util.List;
 @Repository
 public interface CropRepository extends MongoRepository<Crop, String>{
     List<Crop> getListByfarmerid(String farmerid);
+    List<Crop> getListByname(String name);
+    List<Crop> getListByActive(Boolean Active);
 }
