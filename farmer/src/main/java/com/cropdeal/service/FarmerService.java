@@ -21,15 +21,13 @@ public class FarmerService  {
         return  farmerRepository.findAll();
     }
 
-    //Returns the data of The Farmer by using id if the farmer exits or returns farmer with no data .
+    //Returns the data of The Farmer by using id if the farmer exits.
     public Farmer findById(String Id){
 
-        if(Checkexits(Id)){
+
             return farmerRepository.findById(Id).get();
-        }
-        else {
-            return new Farmer();
-        }
+
+
     }
 
     //Adds the Farmer into the database

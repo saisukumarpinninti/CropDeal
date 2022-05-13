@@ -2,20 +2,13 @@ package com.cropdeal.Controller;
 
 import com.cropdeal.entity.Farmer;
 import com.cropdeal.service.FarmerService;
-import java.util.List;
-
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-
+import java.util.List;
 
 
 @RestController
@@ -30,42 +23,65 @@ public class FarmerController {
     //Returns List Of All The Farmers
     @GetMapping("/all")
     @ApiOperation(value = "Get all the Farmers List")
-    public List<Farmer> getFarmers() {
-        return farmerService.getAllFarmers();
+    public ResponseEntity<List<Farmer>> getFarmers() {
+        try {
+            return new ResponseEntity<>(farmerService.getAllFarmers(), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
 
     //Returns the data of The Farmer by using id
     @GetMapping("/{Id}")
     @ApiOperation(value = "Get the Farmers Particular Farmer Details By Id")
-    public Farmer findById(@PathVariable String Id) {
-        return farmerService.findById(Id);
+    public ResponseEntity<Farmer> findById(@PathVariable String Id) {
+        try {
+            return new ResponseEntity<>(farmerService.findById(Id), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
     }
 
     //Adds the Farmer into the database
     @PostMapping("/add")
     @ApiOperation(value = "Add a New Farmer")
-    public Farmer addFarmer(@RequestBody Farmer s) {
-        return farmerService.AddFarmer(s);
+    public ResponseEntity<Farmer> addFarmer(@RequestBody Farmer s) {
+        try {
+            return new ResponseEntity<>(farmerService.updateFarmer(s), HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
+        }
     }
 
     //Updates the Farmer data
     @PutMapping("/update")
     @ApiOperation(value = "Update an Existing Farmer")
-    public Farmer updateFarmer(@RequestBody Farmer s) {
-        return farmerService.updateFarmer(s);
+
+    public ResponseEntity<Farmer> updateFarmer(@RequestBody Farmer s) {
+        try {
+            return new ResponseEntity<>(farmerService.updateFarmer(s), HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
+        }
     }
 
     //Deletes the Farmer data by using id
     @ApiOperation(value = "Delete an existing Farmer By id ")
     @DeleteMapping("/delete/{Id}")
-    public String deleteFarmer(@PathVariable String Id){
-        return farmerService.deleteById(Id);
+    public ResponseEntity<String> deleteFarmer(@PathVariable String Id) {
+        try {
+            return new ResponseEntity<String>(farmerService.deleteById(Id), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
 
     @GetMapping("/check/{Id}")
     @ApiOperation(value = "To check the farmerid is Available or not")
-    public Boolean FarmerExits(@PathVariable String Id){return farmerService.Checkexits(Id);}
+    public Boolean FarmerExits(@PathVariable String Id) {
+        return farmerService.Checkexits(Id);
+    }
 
 }
