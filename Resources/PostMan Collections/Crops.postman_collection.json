@@ -86,6 +86,60 @@
 			"response": []
 		},
 		{
+			"name": "Get all Crops By name",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:8081/Crop/brinjal/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"Crop",
+						"brinjal",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all Crops By Status",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:8081/Crop/true/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"Crop",
+						"true",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Add Crop",
 			"request": {
 				"method": "POST",
