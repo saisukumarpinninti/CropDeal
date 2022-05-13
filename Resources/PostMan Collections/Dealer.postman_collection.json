@@ -141,6 +141,64 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Check Dealer",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:8083/farmer/check/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"farmer",
+						"check",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Check Dealer",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "localhost:8083/farmer/check/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"farmer",
+								"check",
+								"2"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
 		}
 	]
 }
