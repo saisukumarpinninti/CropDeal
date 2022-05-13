@@ -1,0 +1,30 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: Api-Service
+  cloud:
+    gateway:
+      routes:
+        - id : AdminService
+          uri : lb://AdminService
+          predicates:
+            - Path=/Admin/**
+        - id: FarmerService
+          uri: lb://FarmerService
+          predicates:
+            - Path=/farmer/**
+
+        - id: DealerService
+          uri: lb://DealerService
+          predicates:
+            - Path=/Dealer/**
+
+        - id: CropService
+          uri: lb://CropService
+          predicates:
+            - Path=/Crop/**
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
