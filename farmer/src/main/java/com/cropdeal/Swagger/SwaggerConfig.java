@@ -15,6 +15,7 @@ import java.util.Collections;
 @EnableSwagger2
 @Configuration
 public class SwaggerConfig {
+
     @Bean
     public Docket productApi()
     {
