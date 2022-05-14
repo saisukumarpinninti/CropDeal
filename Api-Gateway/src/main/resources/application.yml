@@ -3,6 +3,9 @@ server:
 spring:
   application:
     name: Api-Service
+  data:
+    mongodb:
+      uri: mongodb+srv://sai:sai@pinninti-sai-sukumar.lvnkc.mongodb.net/User?retryWrites=true&w=majority
   cloud:
     gateway:
       routes:

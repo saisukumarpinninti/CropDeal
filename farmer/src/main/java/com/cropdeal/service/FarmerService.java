@@ -2,7 +2,9 @@ package com.cropdeal.service;
 
 import com.cropdeal.Repository.FarmerRepository;
 import com.cropdeal.entity.Farmer;
+import com.cropdeal.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,6 +18,9 @@ public class FarmerService {
     private FarmerRepository farmerRepository;
     @Autowired
     private SequenceGenerator sg;
+
+    @Autowired
+    private UserService userService;
 
     //Returns List Of All The Farmers
     public List<Farmer> getAllFarmers() {
@@ -35,13 +40,23 @@ public class FarmerService {
 
         //Setting the Status of the Farmer to Active.
         F.setStatus(Boolean.TRUE);
+        //Encrypting the Password
+        F.setPassword(new BCryptPasswordEncoder().encode(F.getPassword()));
+        //Creating User
+        User u = userService.generateUser(F);
+        //Adding User
+        userService.addUser(u);
         return farmerRepository.save(F);
     }
+
 
     //Updates the Farmer data in the database if the farmer exits and returns the updated the data
     //if the Farmer not exits returns the error
     public Farmer updateFarmer(Farmer F) {
-            return farmerRepository.save(F);
+        F.setPassword(new BCryptPasswordEncoder().encode(F.getPassword()));
+        User u = userService.generateUser(F);
+        userService.UpdateUser(u);
+        return farmerRepository.save(F);
     }
 
     //Deletes the Farmer data in the database if the farmer exits and returns the Result
@@ -49,6 +64,7 @@ public class FarmerService {
     public String deleteById(String Id) {
 
         if (Checkexits(Id)) {
+            userService.DeleteUser(Id);
             farmerRepository.deleteById(Id);
             return "Deleted SuccessFully";
         }

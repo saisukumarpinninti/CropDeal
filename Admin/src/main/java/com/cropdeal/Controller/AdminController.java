@@ -25,7 +25,6 @@ public class AdminController {
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-
     }
 
     //Adds the Admin into the database

@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 
@@ -48,7 +47,7 @@ public class FarmerController {
     @ApiOperation(value = "Add a New Farmer")
     public ResponseEntity<Farmer> addFarmer(@RequestBody Farmer s) {
         try {
-            return new ResponseEntity<>(farmerService.updateFarmer(s), HttpStatus.CREATED);
+            return new ResponseEntity<>(farmerService.AddFarmer(s), HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
