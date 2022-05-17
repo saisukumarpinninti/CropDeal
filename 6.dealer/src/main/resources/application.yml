@@ -1,0 +1,12 @@
+server:
+  port: 8083
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://sai:sai@pinninti-sai-sukumar.lvnkc.mongodb.net/Dealer?retryWrites=true&w=majority
+  application:
+    name: DealerService
+  mvc:
+    pathmatch:
+      matching-strategy:
+        ant-path-matcher
