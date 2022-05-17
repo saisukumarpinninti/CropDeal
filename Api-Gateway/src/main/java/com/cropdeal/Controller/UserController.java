@@ -7,7 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 
 @RestController
@@ -19,8 +18,10 @@ public class UserController {
     @Autowired
     private UserService UserService;
 
-    
-
+    @GetMapping("/hello")
+    public String hello(){
+        return "hello";
+    }
     //Adds the User into the database
     @PostMapping("/add")
     public ResponseEntity<User> addUser(@RequestBody User s) {
@@ -51,6 +52,6 @@ public class UserController {
         }
     }
 
-    
+
 
 }

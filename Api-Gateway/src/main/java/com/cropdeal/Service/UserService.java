@@ -43,6 +43,10 @@ public class UserService {
         }
     }
 
+    public User getbyUsername(String name){
+        return userRepository.getByname(name);
+    }
+
     //checks and sends the boolean if the role is changed or not
     public boolean checkRole(User u){
         return  findById(u.getId()).getRole().equals(u.getRole());
