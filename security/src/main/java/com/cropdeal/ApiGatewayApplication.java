@@ -3,14 +3,13 @@ package com.cropdeal;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
-@EnableEurekaClient
-@EnableZuulProxy
 @SpringBootApplication
-public class ZuulServiceApplication {
+@EnableEurekaClient
+public class ApiGatewayApplication {
+
 	public static void main(String[] args) {
-		SpringApplication.run(ZuulServiceApplication.class, args);
+		SpringApplication.run(ApiGatewayApplication.class, args);
 	}
 
 }

@@ -5,10 +5,13 @@ zuul:
     FarmerService:
       path: /farmer/**
       serviceId: FarmerService
+    SecurityService:
+      path: /sec/**
+      serviceId: SecurityService
 
 server:
   port: 8079
 
 spring:
   application:
-    name: zuul-service
+    name: Api-Service
