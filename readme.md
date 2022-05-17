@@ -4,9 +4,19 @@
 <img  src="https://github.com/saisukumarpinninti/CropDeal/blob/master/Resources/icon.PNG" width="200" height="100">
 </p>
 
-![](https://komarev.com/ghpvc/?username=saisukumarpinninti&color=green)
+ ## Services
 
-![Thanks For Having a Visit ...! ](https://static.wixstatic.com/media/ea6ac8_08a05b026f654bcdaa60a5164a0da1d0~mv2.jpg/v1/fill/w_924,h_521,al_c,q_90/ea6ac8_08a05b026f654bcdaa60a5164a0da1d0~mv2.jpg)
-Thanks For Having a Visit ...! 
-## More Details Would Be Here Very Soon ##
+> ### ` Api-Gateway` ### 
+>- This Service is used to connect the different services. from the client side. 
+>- This is the security service.
+>- All the incoming requests are checked for the security.
+>- Spring Boot parent version of  ` 1.5.3.RELEASE ` is used for this service. 
+>- java version ` 1.8 ` is used for this service.
+>- spring cloud version of `Dalston.RELEASE` is used for this service.
+
+> ### ` Discovery-server` ###
+>- This Service is the `eureka server` that does the service discovery  from the server  side.
+>- All the services are registered in this service.
+>
+
 
