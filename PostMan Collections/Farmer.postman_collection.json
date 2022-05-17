@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "f1c15420-3853-4288-85b8-2ee8b340559e",
+		"name": "Farmer",
+		"description": "*   **Api-Documentation** - [http://localhost:8082/v2/api-docs](http://localhost:8082/v2/api-docsApi-Documentation)\n*   **Api-Documentation** UI - [http://localhost:8082/swagger-ui.html#/](http://localhost:8082/swagger-ui.html#/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Farmer",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:8082/farmer/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"farmer",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check Farmer",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:8082/farmer/check/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"farmer",
+						"check",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Farmers List",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:8082/farmer/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"farmer",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Farmer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n        \"id\": \"0\",\r\n        \"firstName\": \"saiSukumar\",\r\n        \"lastName\": \"Pinninti\",\r\n        \"password\": \"Hello\",\r\n        \"dob\": \"2000-01-11T00:00:00.000+00:00\",\r\n        \"email\": \"sai@gmail.com\",\r\n        \"address\": \"saisukumar\",\r\n        \"paymentInfo\": 333645,\r\n        \"mobileNumber\": 9000725889,\r\n        \"status\": true\r\n    \r\n}"
+				},
+				"url": {
+					"raw": "localhost:8082/farmer/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"farmer",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Farmer",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": \"3\",\r\n        \"firstName\": \"saiSukumar\",\r\n        \"lastName\": \"Pinninti\",\r\n        \"password\": \"Hello\",\r\n        \"dob\": \"2000-01-11T00:00:00.000+00:00\",\r\n        \"email\": \"sai@gmail.com\",\r\n        \"address\": \"saisukumar\",\r\n        \"paymentInfo\": 333645,\r\n        \"mobileNumber\": 9000725889,\r\n        \"status\": true\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8082/farmer/update",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"farmer",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Farmer",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8082/farmer/delete/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"farmer",
+						"delete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

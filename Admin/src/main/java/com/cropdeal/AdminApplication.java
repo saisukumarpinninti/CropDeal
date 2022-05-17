@@ -11,6 +11,12 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class AdminApplication {
 
+	@Bean
+	@LoadBalanced
+	public RestTemplate getRestTemplate(){
+		return  new RestTemplate();
+	}
+
 	public static void main(String[] args) {
 		SpringApplication.run(AdminApplication.class, args);
 	}
