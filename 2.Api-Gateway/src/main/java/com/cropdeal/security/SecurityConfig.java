@@ -44,12 +44,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/api/farmer").hasRole("Admin")
-                .antMatchers("/authenticate","/add","/update","/delete").permitAll()
+                .antMatchers("/user/all","/api/farmer/farmer/all").hasRole("Admin")
+                .antMatchers("/user/hello").hasRole("Farmer")
+                .antMatchers("/user/authenticate","/add","/update","/delete").permitAll()
                 .anyRequest().authenticated().and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         httpSecurity.addFilterBefore(jwtRequestFilter,UsernamePasswordAuthenticationFilter.class);
-
     }
 
 }
