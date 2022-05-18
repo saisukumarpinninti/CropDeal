@@ -20,10 +20,10 @@ public class MyUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        System.out.println(s+"username");
         com.cropdeal.Entity.User u = userService.findById(s);
         ArrayList<GrantedAuthority> a = new ArrayList();
         a.add(new SimpleGrantedAuthority("ROLE_" + u.getRole()));
+        System.out.println(s+" - username"+a+" - Role");
 
         return new User(u.getId(), u.getPassword(), a);
     }

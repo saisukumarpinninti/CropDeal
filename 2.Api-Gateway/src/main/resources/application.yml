@@ -1,13 +1,11 @@
 zuul:
-  #Service will be mapped under the /api URI
   prefix: /api
   routes:
     FarmerService:
       path: /farmer/**
       serviceId: FarmerService
-    SecurityService:
-      path: /sec/**
-      serviceId: SecurityService
+      url : http://localhost:8082/
+
 
 server:
   port: 9000
@@ -18,3 +16,13 @@ spring:
   data:
     mongodb:
       uri: mongodb+srv://sai:sai@pinninti-sai-sukumar.lvnkc.mongodb.net/User?retryWrites=true&w=majority
+
+
+eureka:
+  client:
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+    instance:
+      preferIpAddress: true
+    register-with-eureka: true

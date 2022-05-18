@@ -66,15 +66,15 @@ public class Controller {
         }
     }
 
-//    //Updates the User data
-//    @PostMapping("/update")
-//    public ResponseEntity<User> updateUser(@RequestBody User s) {
-//        try {
-//            return new ResponseEntity<>(UserService.UpdateUser(s), HttpStatus.CREATED);
-//        } catch (Exception e) {
-//            return new ResponseEntity<>(HttpStatus.CONFLICT);
-//        }
-//    }
+    //Updates the User data
+    @PostMapping("/update")
+    public ResponseEntity<User> updateUser(@RequestBody User s) {
+        try {
+            return new ResponseEntity<>(UserService.UpdateUser(s), HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
+        }
+    }
 
     //Deletes the User data by using id
     @DeleteMapping("/delete/{Id}")
