@@ -5,6 +5,18 @@ zuul:
       path: /farmer/**
       serviceId: FarmerService
       url : http://localhost:8082/
+    DealerService:
+      path: /dealer/**
+      serviceId: DealerService
+      url: http://localhost:8083/
+    CropDetailService:
+      path: /crop/**
+      serviceId: CropDetailService
+      url: http://localhost:8081
+    AdminService:
+      path: /Admin/**
+      serviceId: AdminService
+      url: http://localhost:8084
 
 
 server:

@@ -44,9 +44,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/user/all","/api/farmer/farmer/all").hasRole("Admin")
-                .antMatchers("/user/hello").hasRole("Farmer")
-                .antMatchers("/user/authenticate","/add","/update","/delete").permitAll()
+                //For the Admin
+                .antMatchers("/user/all","/api/farmer/farmer/all",
+                        "/api/dealer/Dealer/all","/api/Admin/Dealer/all","/api/Admin/Admin/","api/crop/Crop/delete").hasRole("Admin")
+                //For the Farmer & Admin
+                .antMatchers("/api/farmer/farmer/update",
+                        "/api/farmer/farmer/delete","api/crop/Crop/add","api/crop/Crop/update").hasAnyRole("Farmer","Admin")
+                // For the Dealer & Admin
+                .antMatchers("/api/dealer/dealer/update",
+                        "/api/dealer/Dealer/delete").hasAnyRole("Dealer","Admin")
+                // Open For All
+                .antMatchers("/user/authenticate","/user/add","/user/update",
+                        "/user/delete", "/api/farmer/farmer/add", "/api/dealer/Dealer/delete","/api/dealer/Dealer/delete","api/crop/Crop/true/all").permitAll()
                 .anyRequest().authenticated().and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         httpSecurity.addFilterBefore(jwtRequestFilter,UsernamePasswordAuthenticationFilter.class);
