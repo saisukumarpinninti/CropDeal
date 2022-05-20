@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
-Main-Class: sukumar.DiscoveryServerApplication
+Main-Class: com.cropdeal.DiscoveryServerApplication
 
