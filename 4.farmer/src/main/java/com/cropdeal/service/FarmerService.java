@@ -19,8 +19,7 @@ public class FarmerService {
     @Autowired
     private SequenceGenerator sg;
 
-    @Autowired
-    private UserService userService;
+
 
     //Returns List Of All The Farmers
     public List<Farmer> getAllFarmers() {
@@ -36,26 +35,24 @@ public class FarmerService {
     public Farmer AddFarmer(Farmer F) {
 
         //Generating the id of the farmer
-        F.setId(sg.getSequenceNumber("Farmer_Sequence"));
-
+        F.setId("F"+sg.getSequenceNumber("Farmer_Sequence"));
         //Setting the Status of the Farmer to Active.
         F.setStatus(Boolean.TRUE);
         //Encrypting the Password
         F.setPassword(new BCryptPasswordEncoder().encode(F.getPassword()));
-        //Creating User
-        User u = userService.generateUser(F);
-        //Adding User
-        userService.addUser(u);
+
         return farmerRepository.save(F);
     }
 
+    public User getdetails(String Id){
+        Farmer f = findById(Id);
+        return new User(f.getId(),f.getPassword(),"Farmer");
+    }
 
     //Updates the Farmer data in the database if the farmer exits and returns the updated the data
     //if the Farmer not exits returns the error
     public Farmer updateFarmer(Farmer F) {
         F.setPassword(new BCryptPasswordEncoder().encode(F.getPassword()));
-        User u = userService.generateUser(F);
-        userService.UpdateUser(u);
         return farmerRepository.save(F);
     }
 
@@ -64,7 +61,6 @@ public class FarmerService {
     public String deleteById(String Id) {
 
         if (Checkexits(Id)) {
-            userService.DeleteUser(Id);
             farmerRepository.deleteById(Id);
             return "Deleted SuccessFully";
         }

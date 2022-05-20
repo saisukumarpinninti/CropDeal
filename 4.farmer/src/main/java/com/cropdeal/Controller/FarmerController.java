@@ -1,6 +1,7 @@
 package com.cropdeal.Controller;
 
 import com.cropdeal.entity.Farmer;
+import com.cropdeal.entity.User;
 import com.cropdeal.service.FarmerService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +50,9 @@ public class FarmerController {
         try {
             return new ResponseEntity<>(farmerService.AddFarmer(s), HttpStatus.CREATED);
         } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.CONFLICT);
+            e.printStackTrace();
+            s.setFirstName(e.toString());
+            return new ResponseEntity<>(s,HttpStatus.CONFLICT);
         }
     }
 
@@ -76,6 +79,15 @@ public class FarmerController {
         }
     }
 
+    @GetMapping("/getdetails/{Id}")
+
+    public ResponseEntity<User> Farmerdetails(@PathVariable String Id) {
+        try {
+            return new ResponseEntity<>(farmerService.getdetails(Id), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 
     @GetMapping("/check/{Id}")
     @ApiOperation(value = "To check the farmerid is Available or not")
