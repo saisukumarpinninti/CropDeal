@@ -20,8 +20,6 @@ public class DealerService {
     @Autowired
     private SequenceGenerator sg;
 
-    @Autowired
-    private UserService userService;
 
 
     public DealerService() {
@@ -43,18 +41,13 @@ public class DealerService {
     public Dealer AddDealer(Dealer F) {
 
         //Generating the id of the Dealer
-        F.setId(sg.getSequenceNumber("Dealer_Sequence"));
+        F.setId("D"+sg.getSequenceNumber("Dealer_Sequence"));
 
         //Setting the Status of the Dealer to Active.
         F.setStatus(Boolean.TRUE);
         //Encrypting the Password
         F.setPassword(new BCryptPasswordEncoder().encode(F.getPassword()));
-        //Creating User
-        User u = userService.generateUser(F);
-        //Adding User
-        userService.addUser(u);
-        //ReSetting the addons list to Empty
-        //F.setAddons(EmptyAddons);
+
         return DealerRepository.save(F);
     }
 
@@ -62,17 +55,21 @@ public class DealerService {
 
     public Dealer updateDealer(Dealer F) {
         F.setPassword(new BCryptPasswordEncoder().encode(F.getPassword()));
-        User u = userService.generateUser(F);
-        userService.UpdateUser(u);
+
         return DealerRepository.save(F);
     }
 
     //Deletes the Dealer data in the database if the Dealer exits and returns the Result
     public String deleteById(String Id) {
-        userService.DeleteUser(Id);
         DealerRepository.deleteById(Id);
         return "Deleted SuccessFully";
 
+    }
+
+
+    public User getdetails(String Id){
+        Dealer f = findById(Id);
+        return new User(f.getId(),f.getPassword(),"Dealer");
     }
 
     //checks & Sends if the Dealer exits or not

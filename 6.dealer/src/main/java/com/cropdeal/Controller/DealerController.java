@@ -1,7 +1,9 @@
 package com.cropdeal.Controller;
 
 import com.cropdeal.entity.Dealer;
+import com.cropdeal.entity.User;
 import com.cropdeal.service.DealerService;
+import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,6 +30,16 @@ public class DealerController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
+    }
+
+
+    @GetMapping("/getdetails/{Id}")
+    public ResponseEntity<User> dealerdetails(@PathVariable String Id) {
+        try {
+            return new ResponseEntity<>(DealerService.getdetails(Id), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     //Returns the data of The Dealer by using id
