@@ -2,6 +2,7 @@ package com.cropdeal.Controller;
 
 import com.cropdeal.Service.AdminService;
 import com.cropdeal.entity.Admin;
+import com.cropdeal.entity.User;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -45,6 +46,16 @@ public class AdminController {
      public ResponseEntity<Admin> updateAdmin(@RequestBody Admin s) {
         try {
             return new ResponseEntity<>(AdminService.updateAdmin(s), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+
+    @GetMapping("/getdetails/{Id}")
+    public ResponseEntity<User> admindetails(@PathVariable String Id) {
+        try {
+            return new ResponseEntity<>(AdminService.getdetails(Id), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

@@ -14,8 +14,7 @@ public class AdminService {
     private AdminRepository adminRepository;
 
     @Autowired
-    private UserService userService;
-
+    private SequenceGenerator sg;
     //Returns the data of The Admin by using id if the Admin exits
     public Admin findById(String Id) {
         return adminRepository.findById(Id).get();
@@ -24,26 +23,28 @@ public class AdminService {
 
     //Adds the Admin into the databases of admin & User
     public Admin addAdmin(Admin a) {
+        //Generating the id of the Admin
+        a.setId("D"+sg.getSequenceNumber("Admin_Sequence"));
         //Encrypting the Password
         a.setPassword(new BCryptPasswordEncoder().encode(a.getPassword()));
-        //Creating User
-        User u = userService.generateUser(a);
-        //Adding User
-        userService.addUser(u);
+
         return adminRepository.save(a);
+    }
+
+    public User getdetails(String Id){
+        Admin f = findById(Id);
+        return new User(f.getId(),f.getPassword(),"Admin");
     }
 
     //Updates the Admin data in the databases of admin & User  if the Admin exits
     public Admin updateAdmin(Admin a) {
         a.setPassword(new BCryptPasswordEncoder().encode(a.getPassword()));
-        User u = userService.generateUser(a);
-        userService.UpdateUser(u);
         return adminRepository.save(a);
     }
 
     //Deletes the Admin data from the databases of admin & User if the Admin exits
     public String deleteById(String Id) {
-        userService.DeleteUser(Id);
+
         adminRepository.deleteById(Id);
         return "deleted SuccessFully";
     }
