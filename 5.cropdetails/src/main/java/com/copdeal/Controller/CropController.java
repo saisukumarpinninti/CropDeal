@@ -10,17 +10,20 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/Crop")
 public class CropController {
 
     @Autowired
     private CropService cropService;
+    int i = 1 ;
 
     //Returns List Of All The crops
     @GetMapping("/all")
     @ApiOperation(value = "Get All Crops ")
     public ResponseEntity<List<Crop>> getCrops() {
+
         try {
             return new ResponseEntity<>(cropService.getAllCrops(), HttpStatus.OK);
         } catch (Exception e) {
@@ -29,7 +32,7 @@ public class CropController {
     }
 
     //returns  the list of crops by a specific farmerid
-    @GetMapping("/{farmerid}/all")
+    @GetMapping("farmer/{farmerid}/all")
     @ApiOperation(value = "Get all Crops of a Specific farmer")
     public ResponseEntity<List<Crop>> getListByFarmerId(@PathVariable String farmerid) {
         try {
@@ -40,7 +43,7 @@ public class CropController {
     }
 
     //returns  the list of crops by a specific name
-    @GetMapping("/{name}/all")
+    @GetMapping("crop/{name}/all")
     @ApiOperation(value = "Get all Crops of a Specific name")
     public ResponseEntity<List<Crop>> getListByname(@PathVariable String name) {
         try {
@@ -51,12 +54,13 @@ public class CropController {
     }
 
     //returns the list of crops by a Boolean Active or Inactive
-    @GetMapping("/{Status}/all")
+    @GetMapping("Active/{Status}/all")
     @ApiOperation(value = "Get all Crops of Active or All Crops inactive")
-    public ResponseEntity<List<Crop>> getListByFarmerId(@PathVariable Boolean Status) {
+    public ResponseEntity<List<Crop>> getListByCrop(@PathVariable String Status) {
         try {
             return new ResponseEntity<>(cropService.getListByActive(Status), HttpStatus.OK);
         } catch (Exception e) {
+
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }

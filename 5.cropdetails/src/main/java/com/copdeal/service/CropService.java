@@ -3,8 +3,10 @@ package com.copdeal.service;
 
 import com.copdeal.entity.Crop;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /*
 * Service Class For The Crops
@@ -78,8 +80,9 @@ public class CropService  {
          return CropRepository.getListByname(name);
 }
 
-    public List<Crop> getListByActive(Boolean Active){
-        return CropRepository.getListByActive(Active);
+    public List<Crop> getListByActive(String Active){
+        List<Crop> s = CropRepository.findAll();
+        return s.stream().filter(f -> Boolean.TRUE.equals(f.getActive())).collect(Collectors.toList());
     }
 
     //checks & Sends if the Crop exits or not

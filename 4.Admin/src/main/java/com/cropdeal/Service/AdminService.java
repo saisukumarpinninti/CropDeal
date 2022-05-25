@@ -24,7 +24,7 @@ public class AdminService {
     //Adds the Admin into the databases of admin & User
     public Admin addAdmin(Admin a) {
         //Generating the id of the Admin
-        a.setId("D"+sg.getSequenceNumber("Admin_Sequence"));
+        a.setId("A"+sg.getSequenceNumber("Admin_Sequence"));
         //Encrypting the Password
         a.setPassword(new BCryptPasswordEncoder().encode(a.getPassword()));
 

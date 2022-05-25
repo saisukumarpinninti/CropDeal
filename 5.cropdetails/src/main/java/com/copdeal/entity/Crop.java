@@ -38,6 +38,7 @@ public class Crop {
     private String id;
     @Indexed(name = "farmerid")
     private String farmerid;
+    @Indexed(name = "name")
     private String name;
     private int cost;
     private int quantity;

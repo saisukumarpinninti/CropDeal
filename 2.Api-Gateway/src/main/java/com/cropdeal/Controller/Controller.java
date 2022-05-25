@@ -2,6 +2,7 @@ package com.cropdeal.Controller;
 
 import com.cropdeal.Entity.AuthenticationRequest;
 import com.cropdeal.Entity.AuthenticationResponse;
+import com.cropdeal.Entity.User;
 import com.cropdeal.Util.JwtUtil;
 import com.cropdeal.service.MyUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,17 +37,17 @@ public class Controller {
 
     @PostMapping("/authenticate")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception{
+
         try {
-            System.out.println(authenticationRequest);
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), authenticationRequest.getPassword()));
         }
         catch (Exception e){
             e.printStackTrace();
-            return new ResponseEntity<>(e,HttpStatus.BAD_GATEWAY);
+            return new ResponseEntity<>(e.getMessage(),HttpStatus.BAD_GATEWAY);
         }
         final UserDetails userDetails = myUserDetailsService.loadUserByUsername(authenticationRequest.getUsername());
         final String jwt = jwtUtil.generateToken(userDetails);
-        return ResponseEntity.ok(new AuthenticationResponse(jwt));
+        return ResponseEntity.ok(new AuthenticationResponse(new User(userDetails.getUsername(), userDetails.getPassword(),String.valueOf(userDetails.getAuthorities())),jwt));
     }
 
 }

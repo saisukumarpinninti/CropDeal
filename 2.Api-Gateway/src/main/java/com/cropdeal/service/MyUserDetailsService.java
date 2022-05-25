@@ -31,6 +31,7 @@ public class MyUserDetailsService implements UserDetailsService {
             a.add(new SimpleGrantedAuthority("ROLE_" + u.getRole()));
         }
         else if (g.equals("D")) {
+
            u = restTemplate.getForObject("http://DealerService/Dealer/getdetails/" + s, User.class);
             a.add(new SimpleGrantedAuthority("ROLE_" + u.getRole()));
 
@@ -41,7 +42,6 @@ public class MyUserDetailsService implements UserDetailsService {
         }
         else return null;
         u1=new org.springframework.security.core.userdetails.User(u.getId(), u.getPassword(), a);
-        System.out.println(u.toString());
         return u1;
     }
 }

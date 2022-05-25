@@ -12,7 +12,6 @@ import java.util.List;
 
 
 @RestController
-
 @RequestMapping("/farmer")
 
 public class FarmerController {
@@ -80,7 +79,6 @@ public class FarmerController {
     }
 
     @GetMapping("/getdetails/{Id}")
-
     public ResponseEntity<User> Farmerdetails(@PathVariable String Id) {
         try {
             return new ResponseEntity<>(farmerService.getdetails(Id), HttpStatus.OK);
