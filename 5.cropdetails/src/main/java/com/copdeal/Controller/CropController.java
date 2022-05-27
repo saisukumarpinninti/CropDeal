@@ -10,14 +10,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:4200")
+
 @RestController
 @RequestMapping("/Crop")
 public class CropController {
 
     @Autowired
     private CropService cropService;
-    int i = 1 ;
 
     //Returns List Of All The crops
     @GetMapping("/all")
@@ -54,11 +53,11 @@ public class CropController {
     }
 
     //returns the list of crops by a Boolean Active or Inactive
-    @GetMapping("Active/{Status}/all")
-    @ApiOperation(value = "Get all Crops of Active or All Crops inactive")
-    public ResponseEntity<List<Crop>> getListByCrop(@PathVariable String Status) {
+    @GetMapping("Active/all")
+    @ApiOperation(value = "Get all Crops of Active")
+    public ResponseEntity<List<Crop>> getListByCrop() {
         try {
-            return new ResponseEntity<>(cropService.getListByActive(Status), HttpStatus.OK);
+            return new ResponseEntity<>(cropService.getListByActive("true"), HttpStatus.OK);
         } catch (Exception e) {
 
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

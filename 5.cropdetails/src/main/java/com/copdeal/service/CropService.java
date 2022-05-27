@@ -54,7 +54,7 @@ public class CropService  {
     //Updates the Crop data in the database if the Crop exits and returns the updated the data
     //if the Crop not exits returns the error
     public Crop updateCrop(Crop F){
-
+        F.setActive(Boolean.TRUE);
             return  CropRepository.save(F);
 
 
@@ -64,11 +64,8 @@ public class CropService  {
     //Deletes the Crop data in the database if the Crop exits and returns the Result
     //if the Crop not exits returns the error result
     public String deleteById(String Id) {
-
-
             CropRepository.deleteById(Id);
             return "Deleted SuccessFully";
-
     }
 
     //get the list of crops by a specific farmerid

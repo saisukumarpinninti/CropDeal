@@ -10,7 +10,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableSwagger2
-
+@CrossOrigin(origins = "http://localhost:4200")
 public class CropDetailsApplication {
 
 	@Bean
