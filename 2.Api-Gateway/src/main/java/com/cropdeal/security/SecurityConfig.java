@@ -61,8 +61,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/api/dealer/Dealer/delete").hasAnyRole("Dealer","Admin")
                 // Open For All
                 .antMatchers("/user/authenticate",
-                        "/api/farmer/farmer/add", "/api/dealer/Dealer/add",
-                        "/api/dealer/Dealer/delete","api/crop/Crop/true/all").permitAll()
+                        "/api/farmer/farmer/add", "/api/dealer/Dealer/add","/api/crop/Crop/Active/all").permitAll()
                 .anyRequest().authenticated().and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().cors().configurationSource(corsConfigurationSource());

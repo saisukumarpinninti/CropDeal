@@ -4,19 +4,23 @@ zuul:
     FarmerService:
       path: /farmer/**
       serviceId: FarmerService
-      url : http://localhost:8082/
+
     DealerService:
       path: /dealer/**
       serviceId: DealerService
-      url: http://localhost:8083/
-    CropDetailService:
+
+    CropService:
       path: /crop/**
-      serviceId: CropDetailService
-      url: http://localhost:8081
+      serviceId: CropService
+
     AdminService:
       path: /Admin/**
       serviceId: AdminService
-      url: http://localhost:8084
+
+    PaymentService:
+      path: /Payment/**
+      serviceId: PaymentService
+
 
 server:
   port: 9000
