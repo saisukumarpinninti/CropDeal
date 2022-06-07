@@ -108,4 +108,13 @@ public class CropController {
         }
     }
 
+    @GetMapping("/inactive/{Id}")
+    @ApiOperation(value = "Makes a Crop Inactive Based on id")
+    public ResponseEntity<String> inactiveCrop(@PathVariable String Id) {
+        try {
+            return new ResponseEntity<>(cropService.inactiveById(Id), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 }

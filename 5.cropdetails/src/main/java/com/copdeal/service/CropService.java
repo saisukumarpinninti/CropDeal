@@ -68,6 +68,19 @@ public class CropService  {
             return "Deleted SuccessFully";
     }
 
+    public String inactiveById(String Id) {
+        try {
+            Crop c = findById(Id);
+            c.setActive(false);
+            CropRepository.save(c);
+            return "deactivated Crop";
+        }
+        catch (Exception e){
+            return e.getMessage();
+        }
+
+    }
+
     //get the list of crops by a specific farmerid
     public  List<Crop> getListByFarmer(String farmerId){
         return CropRepository.getListByfarmerid(farmerId);

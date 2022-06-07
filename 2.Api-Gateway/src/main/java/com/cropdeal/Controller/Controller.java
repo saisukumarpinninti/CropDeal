@@ -42,7 +42,6 @@ public class Controller {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), authenticationRequest.getPassword()));
         }
         catch (Exception e){
-            e.printStackTrace();
             return new ResponseEntity<>(e.getMessage(),HttpStatus.BAD_GATEWAY);
         }
         final UserDetails userDetails = myUserDetailsService.loadUserByUsername(authenticationRequest.getUsername());

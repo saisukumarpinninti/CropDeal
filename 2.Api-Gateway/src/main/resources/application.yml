@@ -29,7 +29,6 @@ spring:
   application:
     name: Api-Service
 
-
 eureka:
   client:
     fetch-registry: true
