@@ -1,11 +1,13 @@
 package com.cropdeal;
-
 import com.cropdeal.Repsitory.detailsrepo;
 import com.cropdeal.Service.CropService;
 import com.cropdeal.Service.SequenceGenerator;
 import com.cropdeal.entity.PaymentCropDeal;
 import com.cropdeal.entity.paytmdetails;
 import com.paytm.pg.merchant.PaytmChecksum;
+import org.slf4j.ILoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
@@ -14,7 +16,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -34,6 +35,7 @@ public class PaymentController {
     @Autowired
     private SequenceGenerator sequenceGenerator;
 
+    Logger logger = LoggerFactory.getLogger(PaymentController.class);
     @GetMapping("/")
     public String home() {
         return "home";
@@ -63,6 +65,7 @@ public class PaymentController {
         p.setTransactionId("Na");
         p.setStatus("In Process");
         detailsrepo.save(p);
+        logger.trace("Payment Initiated" + p.toString());
         return modelAndView;
 
     }
@@ -93,13 +96,15 @@ public class PaymentController {
                     System.out.println("check" + parameters.toString());
                     System.out.println(parameters.get("ORDERID"));
                     PaymentCropDeal p = detailsrepo.findById(parameters.get("ORDERID")).get();
-
                     cropservice.updateCrop(p.getCropId());
+                    logger.trace("payment Succeeded" + p.toString());
                 } else {
                     result = "Payment Failed";
+                    logger.trace("payment Failed" );
                 }
             } else {
                 result = "Checksum mismatched";
+                logger.trace ("payment Failed" );
             }
         } catch (Exception e) {
             result = e.toString();
