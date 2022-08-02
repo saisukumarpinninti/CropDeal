@@ -2,7 +2,7 @@
 
 <p align="center">  <img  src="https://github.com/saisukumarpinninti/CropDeal/blob/master/1.Resources/icon.PNG" width="200" height="100">  </p>
  
- ## This is the Backend Repo of the project for the front end pls check  [Here](https://github.com/saisukumarpinninti/Angular-Front-End-For-CropDeal)
+ ## This is the Backend Repo of the project for the front end using Angular pls check  [Here](https://github.com/saisukumarpinninti/Angular-Front-End-For-CropDeal)
  
  ## Services
 
