@@ -1,9 +1,9 @@
-## ⚠⚠⚠ The Project is in the Developement Phase ⚠⚠⚠ ##
+## ⚠⚠⚠ The Project is for Demo Pourpose only  ⚠⚠⚠ ##
 
-<p align="center">
-<img  src="https://github.com/saisukumarpinninti/CropDeal/blob/master/1.Resources/icon.PNG" width="200" height="100">
-</p>
-
+<p align="center">  <img  src="https://github.com/saisukumarpinninti/CropDeal/blob/master/1.Resources/icon.PNG" width="200" height="100">  </p>
+ 
+ ## This is the Backend Repo of the project for the front end pls check  [Here](https://github.com/saisukumarpinninti/Angular-Front-End-For-CropDeal)
+ 
  ## Services
 
 > ### ` Api-Gateway` ### 
